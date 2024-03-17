@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator with JS</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <!-- First box -->
+    <div class="wrapper">
+        <div class="form-container">
+            <h1>CRIPPLING LOAD CALCULATOR FOR COLUMNS</h1>
+            <h3>FOR BOTH ENDS FIXED</h3>
+            
+            <p>Length of column:
+                <input type="number" id="Length1" placeholder="Enter length of column (e.g., mm)"><br><span id="length_error1"></span>
+            </p>
+            
+            <p>Young's modulus:
+                <input type="number" id="modulus1" placeholder="Enter Young's modulus of column (e.g., N/mm^2)"><br><span id="modulus_error1"></span>
+            </p>
+            
+            <p>Area moment of inertia:
+                <input type="number" id="inertia1" placeholder="Enter area moment of inertia for column (e.g., N/mm^4)"><br><span id="inertia_error1"></span>
+            </p>
+    
+            <button id="btn1">Calculate</button>
+            <p id="output1"></p>
+            <div class="image-container">
+                <img src="image1.jpg" alt="image1">
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- Second box -->
+    <div class="wrapper">
+        <h1>CRIPPLING LOAD CALCULATOR FOR COLUMNS</h1>
+        <h3>FOR ONE END FIXED AND OTHER END FREE</h3>
+        
+        <p>Length of column:
+            <input type="number" id="Length2" placeholder="Enter length of column (e.g., mm)"><br><span id="length_error2"></span>
+        </p>
+        
+        <p>Youngs modulus:
+            <input type="number" id="modulus2" placeholder="Enter radius of column (e.g., mm)"><br><span id="modulus_error2"></span>
+        </p>
+        
+        <p>Area moment of inertia:
+            <input type="number" id="inertia2" placeholder="Enter crushing stress for column (e.g., N/mm^2)"><br><span id="inertia_error2"></span>
+        </p>
+
+        <button id="btn2">Calculate</button>
+        <p id="output2"></p>
+        <div class="image-container">
+            <img src="image2.jpg" alt="image2">
+        </div>
+    </div>
+
+    <!-- Third box -->
+    <div class="wrapper">
+        <h1>CRIPPLING LOAD CALCULATOR FOR COLUMNS</h1>
+        <h3>FOR ONE END FIXED AND OTHER END HINGED</h3>
+        
+        <p>Length of column:
+            <input type="number" id="Length3" placeholder="Enter length of column (e.g., mm)"><br><span id="length_error3"></span>
+        </p>
+        
+        <p>Youngs modulus:
+            <input type="number" id="modulus3" placeholder="Enter youngs modulus of column (e.g., N/mm^2)"><br><span id="modulus_error3"></span>
+        </p>
+        
+        <p>Area moment of inertia:
+            <input type="number" id="inertia3" placeholder="Enter area moment of inertia for column (e.g., N/mm^4)"><br><span id="inertia_error3"></span>
+        </p>
+
+        <button id="btn3">Calculate</button>
+        <p id="output3"></p>
+        <div class="image-container">
+            <img src="image3.jpg" alt="image3">
+        </div>
+    </div>
+    <!-- Fourth box -->
+    <div class="wrapper">
+        <h1>CRIPPLING LOAD CALCULATOR FOR COLUMNS</h1>
+        <h3>FOR BOTH END HINGED</h3>
+        
+        <p>Length of column:
+            <input type="number" id="Length4" placeholder="Enter length of column (e.g., mm)"><br><span id="length_error4"></span>
+        </p>
+        
+        <p>Youngs modulus:
+            <input type="number" id="modulus4" placeholder="Enter radius of column (e.g., mm)"><br><span id="modulus_error4"></span>
+        </p>
+        
+        <p>Area moment of inertia:
+            <input type="number" id="inertia4" placeholder="Enter crushing stress for column (e.g., N/mm^2)"><br><span id="inertia_error4"></span>
+        </p>
+
+        <button id="btn4">Calculate</button>
+        <p id="output4"></p>
+        <div class="image-container">
+            <img src="image4.jpg" alt="image4">
+        </div>
+    </div>
+    
+    <!-- Fifth box -->
+    <div class="wrapper">
+        <h1>Crippling stress using Rankines theory</h1>
+        
+        <p>Length:
+            <input type="number" id="length" placeholder="Enter length of Column in mm"><br><span id="length_error"></span>
+        </p>
+        
+        <p>Crushing stress:
+            <input type="number" id="crushing" placeholder="Enter crushing stress (e.g., N/mm^2)"><br><span id="crushing_error"></span>
+        </p>
+        
+        <p>Radius:
+            <input type="number" id="radius" placeholder="Enter radius (e.g., mm)"><br><span id="radius_error"></span>
+        </p>
+    
+        <button id="btn5">Calculate</button>
+        <p id="output5"></p>
+        
+    </div>
+</body>
+</html>
