@@ -30,6 +30,7 @@ button1.addEventListener('click', () => {
     if (length_status1 && modulus_status1 && inertia_status1) {
         const resultValue1 = (((4*Math.PI**2)*modulus1*inertia1)/length1).toFixed(3);
         document.getElementById('output1').innerHTML = 'Result: ' + resultValue1;
+        document.getElementById('crippling').value = resultValue1; // Assigning the result to crippling input field in the fifth box
     } else {
         alert('The form has errors');
     }
@@ -43,7 +44,6 @@ button2.addEventListener('click', () => {
     const modulus2 = parseInt(document.getElementById('modulus2').value);
     const inertia2 = parseInt(document.getElementById('inertia2').value);
 
-    const result2 = document.getElementById('output2');
     let length_status2 = false, modulus_status2 = false, inertia_status2 = false;
 
     if (isNaN(length2) || length2 <= 0) {
@@ -67,7 +67,8 @@ button2.addEventListener('click', () => {
 
     if (length_status2 && modulus_status2 && inertia_status2) {
         const resultValue2 = ((Math.PI**2)*modulus2*inertia2)/(4*length2**2);
-        result2.innerHTML = 'Result: ' + resultValue2.toFixed(2);
+        document.getElementById('output2').innerHTML = 'Result: ' + resultValue2.toFixed(2);
+        document.getElementById('crippling').value = resultValue2; // Assigning the result to crippling input field in the fifth box
     } else {
         alert('The form has errors');
     }
@@ -81,7 +82,6 @@ button3.addEventListener('click', () => {
     const modulus3 = parseInt(document.getElementById('modulus3').value);
     const inertia3 = parseInt(document.getElementById('inertia3').value);
 
-    const result3 = document.getElementById('output3');
     let length_status3 = false, modulus_status3 = false, inertia_status3 = false;
 
     if (isNaN(length3) || length3 <= 0) {
@@ -105,7 +105,8 @@ button3.addEventListener('click', () => {
 
     if (length_status3 && modulus_status3 && inertia_status3) {
         const resultValue3 = ((2*Math.PI**2)*modulus3*inertia3)/length3**2;
-        result3.innerHTML = 'Result: ' + resultValue3.toFixed(2);
+        document.getElementById('output3').innerHTML = 'Result: ' + resultValue3.toFixed(2);
+        document.getElementById('crippling').value = resultValue3; // Assigning the result to crippling input field in the fifth box
     } else {
         alert('The form has errors');
     }
@@ -119,7 +120,6 @@ button4.addEventListener('click', () => {
     const modulus4 = parseInt(document.getElementById('modulus4').value);
     const inertia4 = parseInt(document.getElementById('inertia4').value);
 
-    const result4 = document.getElementById('output4');
     let length_status4 = false, modulus_status4 = false, inertia_status4 = false;
 
     if (isNaN(length4) || length4 <= 0) {
@@ -143,29 +143,29 @@ button4.addEventListener('click', () => {
 
     if (length_status4 && modulus_status4 && inertia_status4) {
         const resultValue4 =((Math.PI**2)*modulus4*inertia4)/length4**2;
-        result4.innerHTML = 'Result: ' + resultValue4.toFixed(2);
+        document.getElementById('output4').innerHTML = 'Result: ' + resultValue4.toFixed(2);
+        document.getElementById('crippling').value = resultValue4; // Assigning the result to crippling input field in the fifth box
     } else {
         alert('The form has errors');
     }
 });
 
-// 5th box
-
+// Fifth box
 const button5 = document.getElementById('btn5');
 
 button5.addEventListener('click', () => {
-    const length = parseFloat(document.getElementById('length').value);
+    const CripplingStress = parseFloat(document.getElementById('crippling').value);
     const crushingStress = parseFloat(document.getElementById('crushing').value);
     const radius = parseFloat(document.getElementById('radius').value);
 
     const result5 = document.getElementById('output5');
-    let lengthStatus = false, crushingStatus = false, radiusStatus = false;
+    let cripplingStatus = false, crushingStatus = false, radiusStatus = false;
 
-    if (isNaN(length) || length <= 0) {
-        document.getElementById('length_error').innerHTML = 'Please provide a valid length';
+    if (isNaN(CripplingStress) || CripplingStress <= 0) {
+        document.getElementById('crippling_error').innerHTML = 'Please provide a valid crippling stress';
     } else {
-        document.getElementById('length_error').innerHTML = '';
-        lengthStatus = true;
+        document.getElementById('crippling_error').innerHTML = '';
+        cripplingStatus = true;
     }
     if (isNaN(crushingStress) || crushingStress <= 0) {
         document.getElementById('crushing_error').innerHTML = 'Please provide a valid crushing stress';
@@ -180,8 +180,8 @@ button5.addEventListener('click', () => {
         radiusStatus = true;
     }
 
-    if (lengthStatus && crushingStatus && radiusStatus) {
-        const resultValue5 = (lengthStress * Math.PI * Math.pow(radius, 2) * crushingStress) / ((crushingStress * Math.PI * Math.pow(radius, 2))-lengthStress);
+    if (cripplingStatus && crushingStatus && radiusStatus) {
+        const resultValue5 = (CripplingStress * Math.PI * Math.pow(radius, 2) * crushingStress) / ((crushingStress * Math.PI * Math.pow(radius, 2))+CripplingStress);
         result5.innerHTML = 'Result: ' + resultValue5.toFixed(2);
     } else {
         result5.innerHTML = ''; 
