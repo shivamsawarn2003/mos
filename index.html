@@ -6,9 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator with JS</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
 </head>
 <body>
+
+    <div class="wrapper">
+        <h1>Determine Long,Short and Intermediate Column</h1>
+        
+        <p>Length Of Column:
+            <input type="number" id="length" placeholder="Enter Length in mm"><br><span id="lenght_error"></span>
+        </p>
+        
+        <p>Radius:
+            <input type="number" id="radius" placeholder="Enter radius (e.g., mm)"><br><span id="radius_error"></span>
+        </p>
+    
+        <button id="btn">Find the ratio</button>
+        <p id="output"></p>
+    </div>
+
+    <div class="wrapper">
+        <h1>Calculate Area Moment of Inertia</h1>
+        
+        <p>Select Shape:
+            <select id="shapeSelect">
+                <option value="rectangle">Rectangle</option>
+                <option value="circle">Circle</option>
+                <option value="triangle">Triangle</option>
+                <option value="square">Square</option>
+                <option value="ellipse">Ellipse</option>
+            </select>
+        </p>
+    
+        <div id="inputFields6">
+            <!-- Input fields will be dynamically generated here -->
+        </div>
+        
+        <button id="calculateBtn6">Calculate</button>
+        <p id="output6"></p>
+    </div>
+
     <!-- First box -->
     <div class="wrapper">
         <div class="form-container">
@@ -19,14 +55,28 @@
                 <input type="number" id="Length1" placeholder="Enter length of column (e.g., mm)"><br><span id="length_error1"></span>
             </p>
             
-            <p>Young's modulus:
-                <input type="number" id="modulus1" placeholder="Enter Young's modulus of column (e.g., N/mm^2)"><br><span id="modulus_error1"></span>
+            <p>Material:
+                <select id="material1">
+                    <option value="aluminum">Aluminum</option>
+                    <option value="brass">Brass</option>
+                    <option value="concrete">Concrete</option>
+                    <option value="firwood">Douglas fir wood</option>
+                    <option value="castiron">Grey cast Iron</option>
+                    <option value="iron">Iron</option>
+                    <option value="oakwood">Oak wood</option>
+                    <option value="pinewood">Pine Wood</option>
+                    <option value="stainless">Stainless Steel</option>
+                    <option value="structural">Structural steel</option>
+                    <option value="titaniumalloy">Titanium Alloy</option>
+                    <option value="wrought">Wrought Iron</option>
+                    <option value="reinforced">Reinforced Steel</option>
+                </select>
             </p>
             
             <p>Area moment of inertia:
-                <input type="number" id="inertia1" placeholder="Enter area moment of inertia for column (e.g., mm^2)"><br><span id="inertia_error1"></span>
+                <input type="number" id="inertia1" placeholder="Enter area moment of inertia for column (e.g., mm^4)"><br><span id="inertia_error1"></span>
             </p>
-    
+
             <button id="btn1">Calculate</button>
             <p id="output1"></p>
             <div class="image-container">
@@ -34,79 +84,127 @@
             </div>
         </div>
     </div>
-    
 
     <!-- Second box -->
     <div class="wrapper">
-        <h1>CRIPPLING LOAD CALCULATOR FOR COLUMNS</h1>
-        <h3>FOR ONE END FIXED AND OTHER END FREE</h3>
-        
-        <p>Length of column:
-            <input type="number" id="Length2" placeholder="Enter length of column (e.g., mm)"><br><span id="length_error2"></span>
-        </p>
-        
-        <p>Youngs modulus:
-            <input type="number" id="modulus2" placeholder="Enter Youngs modulus in N/mm^2"><br><span id="modulus_error2"></span>
-        </p>
-        
-        <p>Area moment of inertia:
-            <input type="number" id="inertia2" placeholder="Enter area moment of inertia for column (e.g., N/mm^4)"><br><span id="inertia_error2"></span>
-        </p>
+        <div class="form-container">
+            <h1>CRIPPLING LOAD CALCULATOR FOR COLUMNS</h1>
+            <h3>FOR ONE END FIXED AND OTHER END FREE</h3>
+            
+            <p>Length of column:
+                <input type="number" id="Length2" placeholder="Enter length of column (e.g., mm)"><br><span id="length_error2"></span>
+            </p>
+            
+            <p>Material:
+                <select id="material2">
+                    <option value="aluminum">Aluminum</option>
+                    <option value="brass">Brass</option>
+                    <option value="concrete">Concrete</option>
+                    <option value="firwood">Douglas fir wood</option>
+                    <option value="castiron">Grey cast Iron</option>
+                    <option value="iron">Iron</option>
+                    <option value="oakwood">Oak wood</option>
+                    <option value="pinewood">Pine Wood</option>
+                    <option value="stainless">Stainless Steel</option>
+                    <option value="structural">Structural steel</option>
+                    <option value="titaniumalloy">Titanium Alloy</option>
+                    <option value="wrought">Wrought Iron</option>
+                    <option value="reinforced">Reinforced Steel</option>
+                </select>
+            </p>
+            
+            <p>Area moment of inertia:
+                <input type="number" id="inertia2" placeholder="Enter area moment of inertia for column (e.g., mm^4)"><br><span id="inertia_error2"></span>
+            </p>
 
-        <button id="btn2">Calculate</button>
-        <p id="output2"></p>
-        <div class="image-container">
-            <img src="image2.jpg" alt="image2">
+            <button id="btn2">Calculate</button>
+            <p id="output2"></p>
+            <div class="image-container">
+                <img src="image2.jpg" alt="image2">
+            </div>
         </div>
     </div>
 
     <!-- Third box -->
     <div class="wrapper">
-        <h1>CRIPPLING LOAD CALCULATOR FOR COLUMNS</h1>
-        <h3>FOR ONE END FIXED AND OTHER END HINGED</h3>
-        
-        <p>Length of column:
-            <input type="number" id="Length3" placeholder="Enter length of column (e.g., mm)"><br><span id="length_error3"></span>
-        </p>
-        
-        <p>Youngs modulus:
-            <input type="number" id="modulus3" placeholder="Enter youngs modulus of column (e.g., N/mm^2)"><br><span id="modulus_error3"></span>
-        </p>
-        
-        <p>Area moment of inertia:
-            <input type="number" id="inertia3" placeholder="Enter area moment of inertia for column (e.g., N/mm^4)"><br><span id="inertia_error3"></span>
-        </p>
+        <div class="form-container">
+            <h1>CRIPPLING LOAD CALCULATOR FOR COLUMNS</h1>
+            <h3>FOR ONE END FIXED AND OTHER END HINGED</h3>
+            
+            <p>Length of column:
+                <input type="number" id="Length3" placeholder="Enter length of column (e.g., mm)"><br><span id="length_error3"></span>
+            </p>
+            
+            <p>Material:
+                <select id="material3">
+                    <option value="aluminum">Aluminum</option>
+                    <option value="brass">Brass</option>
+                    <option value="concrete">Concrete</option>
+                    <option value="firwood">Douglas fir wood</option>
+                    <option value="castiron">Grey cast Iron</option>
+                    <option value="iron">Iron</option>
+                    <option value="oakwood">Oak wood</option>
+                    <option value="pinewood">Pine Wood</option>
+                    <option value="stainless">Stainless Steel</option>
+                    <option value="structural">Structural steel</option>
+                    <option value="titaniumalloy">Titanium Alloy</option>
+                    <option value="wrought">Wrought Iron</option>
+                    <option value="reinforced">Reinforced Steel</option>
+                </select>
+            </p>
+            
+            <p>Area moment of inertia:
+                <input type="number" id="inertia3" placeholder="Enter area moment of inertia for column (e.g., mm^4)"><br><span id="inertia_error3"></span>
+            </p>
 
-        <button id="btn3">Calculate</button>
-        <p id="output3"></p>
-        <div class="image-container">
-            <img src="image3.jpg" alt="image3">
+            <button id="btn3">Calculate</button>
+            <p id="output3"></p>
+            <div class="image-container">
+                <img src="image3.jpg" alt="image3">
+            </div>
         </div>
     </div>
+
     <!-- Fourth box -->
     <div class="wrapper">
-        <h1>CRIPPLING LOAD CALCULATOR FOR COLUMNS</h1>
-        <h3>FOR BOTH END HINGED</h3>
-        
-        <p>Length of column:
-            <input type="number" id="Length4" placeholder="Enter length of column (e.g., mm)"><br><span id="length_error4"></span>
-        </p>
-        
-        <p>Youngs modulus:
-            <input type="number" id="modulus4" placeholder="Enter Youngs modulus in N/mm^2"><br><span id="modulus_error4"></span>
-        </p>
-        
-        <p>Area moment of inertia:
-            <input type="number" id="inertia4" placeholder="Enter area moment of inertia for column (e.g., N/mm^4)"><br><span id="inertia_error4"></span>
-        </p>
+        <div class="form-container">
+            <h1>CRIPPLING LOAD CALCULATOR FOR COLUMNS</h1>
+            <h3>FOR BOTH END HINGED</h3>
+            
+            <p>Length of column:
+                <input type="number" id="Length4" placeholder="Enter length of column (e.g., mm)"><br><span id="length_error4"></span>
+            </p>
+            
+            <p>Material:
+                <select id="material4">
+                    <option value="aluminum">Aluminum</option>
+                    <option value="brass">Brass</option>
+                    <option value="concrete">Concrete</option>
+                    <option value="firwood">Douglas fir wood</option>
+                    <option value="castiron">Grey cast Iron</option>
+                    <option value="iron">Iron</option>
+                    <option value="oakwood">Oak wood</option>
+                    <option value="pinewood">Pine Wood</option>
+                    <option value="stainless">Stainless Steel</option>
+                    <option value="structural">Structural steel</option>
+                    <option value="titaniumalloy">Titanium Alloy</option>
+                    <option value="wrought">Wrought Iron</option>
+                    <option value="reinforced">Reinforced Steel</option>
+                </select>
+            </p>
+            
+            <p>Area moment of inertia:
+                <input type="number" id="inertia4" placeholder="Enter area moment of inertia for column (e.g., mm^4)"><br><span id="inertia_error4"></span>
+            </p>
 
-        <button id="btn4">Calculate</button>
-        <p id="output4"></p>
-        <div class="image-container">
-            <img src="image4.jpg" alt="image4">
+            <button id="btn4">Calculate</button>
+            <p id="output4"></p>
+            <div class="image-container">
+                <img src="image4.jpg" alt="image4">
+            </div>
         </div>
     </div>
-    
+
     <!-- Fifth box -->
     <div class="wrapper">
         <h1>New Crippling stress using Rankines theory</h1>
@@ -125,7 +223,14 @@
     
         <button id="btn5">Calculate</button>
         <p id="output5"></p>
-        
     </div>
+
+   
+    
+    
+    
+
+    <script src="script.js"></script>
+
 </body>
 </html>

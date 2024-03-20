@@ -6,6 +6,7 @@ body {
     background: linear-gradient(to right, #83a4d4, #b6fbff);
 }
 
+
 span {
     color: red;
 }
@@ -45,6 +46,7 @@ input:hover {
     border-color: #999;
 }
 
+
 button {
     color: white;
     padding: 15px 30px;
@@ -81,6 +83,236 @@ h1 {
     height: auto;
     border-radius: 10px;
 }
+
+
+#shapeSelect {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    
+    transition: border-color 0.3s;
+  }
+  
+  #shapeSelect:focus {
+    border-color: dodgerblue;
+  }
+  
+  /* Animation for the dropdown */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Apply animation to the dropdown options */
+  #shapeSelect option {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+
+#material1 {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    
+    transition: border-color 0.3s;
+  }
+  
+  #material1:focus {
+    border-color: dodgerblue;
+  }
+  
+  /* Animation for the dropdown */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Apply animation to the dropdown options */
+  #material1 option {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Apply animation to the dropdown options */
+  #material1 option {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+#material2 {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    
+    transition: border-color 0.3s;
+  }
+  
+  #material2:focus {
+    border-color: dodgerblue;
+  }
+  
+  /* Animation for the dropdown */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Apply animation to the dropdown options */
+  #material2 option {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Apply animation to the dropdown options */
+  #material2 option {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+#material3 {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    
+    transition: border-color 0.3s;
+  }
+  
+  #material3:focus {
+    border-color: dodgerblue;
+  }
+  
+  /* Animation for the dropdown */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Apply animation to the dropdown options */
+  #material3 option {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Apply animation to the dropdown options */
+  #material3 option {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+#material4 {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    
+    transition: border-color 0.3s;
+  }
+  
+  #material4:focus {
+    border-color: dodgerblue;
+  }
+  
+  /* Animation for the dropdown */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Apply animation to the dropdown options */
+  #material4 option {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Apply animation to the dropdown options */
+  #material4 option {
+    animation: fadeIn 0.5s ease-in-out;
+  }
 
 /* Media query for phones */
 @media screen and (max-width: 600px) {
