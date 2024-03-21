@@ -24,17 +24,21 @@ var calculateBtn = document.getElementById("calculateBtn6");
 var output = document.getElementById("output6");
 
 // Event listener for shape selection
+
 shapeSelect.addEventListener("change", function() {
     var selectedShape = shapeSelect.value;
     generateInputFields(selectedShape);
 });
 
+
 // Event listener for calculate button
+
 calculateBtn.addEventListener("click", function() {
     var selectedShape = shapeSelect.value;
     var inputs = document.querySelectorAll("#inputFields6 input");
     var result = calculateAreaMomentOfInertia(selectedShape, inputs);
     output.textContent = "Area Moment of Inertia: " + result;
+
     // Assign the calculated area moment of inertia to other boxes
     document.getElementById('inertia1').value = result; 
     document.getElementById('inertia2').value = result; 
@@ -48,8 +52,8 @@ function generateInputFields(shape) {
     
     if (shape === "rectangle") {
         inputFields.innerHTML = `
-            <label for="length">Length:</label>
-            <input type="number" id="length6" placeholder="Enter length in mm">
+            <label for="length">Height:</label>
+            <input type="number" id="length6" placeholder="Enter height in mm">
             <br>
             <label for="width">Width:</label>
             <input type="number" id="width" placeholder="Enter width in mm">
@@ -241,7 +245,7 @@ button4.addEventListener('click', () => {
 });
 
 // Fifth box
-const button5 = document.getElementById('btn5');
+const button5 = document.getElementById('btn5'); 
 
 button5.addEventListener('click', () => {
     const CripplingStress = parseFloat(document.getElementById('crippling').value);
@@ -298,14 +302,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Calculate the ratio
         var ratio = length / radius;
-
         // Determine column type based on the ratio
         if (ratio > 120) {
-            output.textContent = "Long Column";
-        } else if (ratio <= 32) {
-            output.textContent = "Short Column";
+            output.textContent = "Slendor Ratio: " + ratio.toFixed(2) + ", Long Column"; 
+        } 
+        else if (ratio <= 32) {
+
+            output.textContent = "Slendor Ratio: " + ratio.toFixed(2) + ", Short Column";
+            
         } else {
-            output.textContent = "Intermediate Column";
+            output.textContent = "SlendorRatio: " + ratio.toFixed(2) + ", Intermediate Column";
+            
+
         }
     });
 });
