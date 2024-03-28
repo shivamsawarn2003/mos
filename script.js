@@ -112,6 +112,96 @@ function calculateAreaMomentOfInertia(shape, inputs) {
     return result;
 }
 
+var shapeSelect2 = document.getElementById("shapeSelect2");
+var inputFields7 = document.getElementById("inputFields7");
+var calculateBtn7 = document.getElementById("calculateBtn7");
+var output7 = document.getElementById("output7");
+
+// Event listener for shape selection
+shapeSelect2.addEventListener("change", function() {
+    var selectedShape2 = shapeSelect2.value;
+    generateInputFields(selectedShape2);
+});
+
+// Event listener for calculate button
+calculateBtn7.addEventListener("click", function() {
+    var selectedShape2 = shapeSelect2.value;
+    var inputs7 = document.querySelectorAll("#inputFields7 input");
+    var result7 = calculateAreaMomentOfInertia(selectedShape2, inputs7);
+    output7.textContent = "Area of any shape: " + result7.area + ", Area Moment of Inertia: " + result7.areaMoment; // Print the result here
+});
+
+// Function to dynamically generate input fields based on the selected shape
+function generateInputFields(shape2) {
+    inputFields7.innerHTML = ""; // Clear previous input fields
+    
+    if (shape2 === "rectangle") {
+        inputFields7.innerHTML = `
+            <label for="length">Height:</label>
+            <input type="number" id="length6" placeholder="Enter height in mm">
+            <br>
+            <label for="width">Width:</label>
+            <input type="number" id="width" placeholder="Enter width in mm">
+        `;
+    } else if (shape2 === "circle") {
+        inputFields7.innerHTML = `
+            <label for="radius">Radius:</label>
+            <input type="number" id="radius6" placeholder="Enter radius in mm">
+        `;
+    } else if (shape2 === "triangle") {
+        inputFields7.innerHTML = `
+            <label for="base">Base:</label>
+            <input type="number" id="base" placeholder="Enter base in mm">
+            <br>
+            <label for="height">Height:</label>
+            <input type="number" id="height" placeholder="Enter height in mm">
+        `;
+    } else if (shape2 === "square") {
+        inputFields7.innerHTML = `
+            <label for="side">Side:</label>
+            <input type="number" id="side" placeholder="Enter side length in mm">
+        `;
+    } else if (shape2 === "ellipse") {
+        inputFields7.innerHTML = `
+            <label for="majorAxis">Major Axis:</label>
+            <input type="number" id="majorAxis" placeholder="Enter major axis length in mm">
+            <br>
+            <label for="minorAxis">Minor Axis:</label>
+            <input type="number" id="minorAxis" placeholder="Enter minor axis length in mm">
+        `;
+    }
+}
+
+// Function to calculate the area moment of inertia based on the selected shape and input values
+function calculateAreaMomentOfInertia(shape2, inputs7) {
+    var result = {};
+    if (shape2 === "rectangle") {
+        var length = parseFloat(inputs7[0].value);
+        var width = parseFloat(inputs7[1].value);
+        result.area = length * width;
+        result.areaMoment = (width * Math.pow(length, 3)) / 12;
+    } else if (shape2 === "circle") {
+        var radius = parseFloat(inputs7[0].value);
+        result.area = Math.PI * Math.pow(radius, 2);
+        result.areaMoment = (Math.PI * Math.pow(radius, 4)) / 64;
+    } else if (shape2 === "triangle") {
+        var base = parseFloat(inputs7[0].value);
+        var height = parseFloat(inputs7[1].value);
+        result.area = (base * height) / 2;
+        result.areaMoment = (base * Math.pow(height, 3)) / 36;
+    } else if (shape2 === "square") {
+        var side = parseFloat(inputs7[0].value);
+        result.area = Math.pow(side, 2);
+        result.areaMoment = (Math.pow(side, 4)) / 12;
+    } else if (shape2 === "ellipse") {
+        var majorAxis = parseFloat(inputs7[0].value);
+        var minorAxis = parseFloat(inputs7[1].value);
+        result.area = Math.PI * majorAxis * minorAxis;
+        result.areaMoment = (Math.PI * majorAxis * Math.pow(minorAxis, 3)) / 64;
+    }
+    return result;
+}
+
 // First box
 let button1 = document.getElementById('btn1');
 
