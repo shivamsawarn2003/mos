@@ -18,38 +18,31 @@ function getModulus(material) {
     return materialModulus[material];
 }
 
+let calculatedArea, calculatedAreaMoment;
+
 var shapeSelect = document.getElementById("shapeSelect");
 var inputFields = document.getElementById("inputFields6");
 var calculateBtn = document.getElementById("calculateBtn6");
 var output = document.getElementById("output6");
 
 // Event listener for shape selection
-
 shapeSelect.addEventListener("change", function() {
     var selectedShape = shapeSelect.value;
     generateInputFields(selectedShape);
 });
 
-
 // Event listener for calculate button
-
 calculateBtn.addEventListener("click", function() {
     var selectedShape = shapeSelect.value;
     var inputs = document.querySelectorAll("#inputFields6 input");
-    var result = calculateAreaMomentOfInertia(selectedShape, inputs);
-    output.textContent = "Area Moment of Inertia: " + result;
-
-    // Assign the calculated area moment of inertia to other boxes
-    document.getElementById('inertia1').value = result; 
-    document.getElementById('inertia2').value = result; 
-    document.getElementById('inertia3').value = result; 
-    document.getElementById('inertia4').value = result; 
+    calculateAreaMomentOfInertia(selectedShape, inputs);
+    output.textContent = "Area Moment of Inertia: " + calculatedAreaMoment;
 });
 
 // Function to dynamically generate input fields based on the selected shape
 function generateInputFields(shape) {
     inputFields.innerHTML = ""; // Clear previous input fields
-    
+
     if (shape === "rectangle") {
         inputFields.innerHTML = `
             <label for="length">Height:</label>
@@ -89,25 +82,30 @@ function generateInputFields(shape) {
 
 // Function to calculate the area moment of inertia based on the selected shape and input values
 function calculateAreaMomentOfInertia(shape, inputs) {
-    var result;
+    var result = {};
     if (shape === "rectangle") {
         var length = parseFloat(inputs[0].value);
         var width = parseFloat(inputs[1].value);
-        result = (width * Math.pow(length, 3)) / 12;
+        result.area = length * width;
+        result.areaMoment = (width * Math.pow(length, 3)) / 12;
     } else if (shape === "circle") {
         var radius = parseFloat(inputs[0].value);
-        result = (Math.PI * Math.pow(radius, 4)) / 64;
+        result.area = Math.PI * Math.pow(radius, 2);
+        result.areaMoment = (Math.PI * Math.pow(radius, 4)) / 64;
     } else if (shape === "triangle") {
         var base = parseFloat(inputs[0].value);
         var height = parseFloat(inputs[1].value);
-        result = (base * Math.pow(height, 3)) / 36;
+        result.area = (base * height) / 2;
+        result.areaMoment = (base * Math.pow(height, 3)) / 36;
     } else if (shape === "square") {
         var side = parseFloat(inputs[0].value);
-        result = (Math.pow(side, 4)) / 12;
+        result.area = Math.pow(side, 2);
+        result.areaMoment = (Math.pow(side, 4)) / 12;
     } else if (shape === "ellipse") {
         var majorAxis = parseFloat(inputs[0].value);
         var minorAxis = parseFloat(inputs[1].value);
-        result = (Math.PI * majorAxis * Math.pow(minorAxis, 3)) / 64;
+        result.area = Math.PI * majorAxis * minorAxis;
+        result.areaMoment = (Math.PI * majorAxis * Math.pow(minorAxis, 3)) / 64;
     }
     return result;
 }
@@ -124,17 +122,25 @@ shapeSelect2.addEventListener("change", function() {
 });
 
 // Event listener for calculate button
+// Event listener for calculate button
 calculateBtn7.addEventListener("click", function() {
     var selectedShape2 = shapeSelect2.value;
     var inputs7 = document.querySelectorAll("#inputFields7 input");
-    var result7 = calculateAreaMomentOfInertia(selectedShape2, inputs7);
-    output7.textContent = "Area of any shape: " + result7.area + ", Area Moment of Inertia: " + result7.areaMoment; // Print the result here
+    var result7 = calculateAreaMomentOfInertia(selectedShape2, inputs7); // Call the function and store the result
+    output7.textContent = "Area: " + result7.area + " mm^2, Area Moment of Inertia: " + result7.areaMoment + " mm^4";
+
+    // Update input fields in other boxes
+    document.getElementById('inertia1').value = result7.areaMoment;
+    document.getElementById('inertia2').value = result7.areaMoment;
+    document.getElementById('inertia3').value = result7.areaMoment;
+    document.getElementById('inertia4').value = result7.areaMoment;
+    document.getElementById('area').value = result7.area; // Assuming this is the area input for the fifth box
 });
 
 // Function to dynamically generate input fields based on the selected shape
 function generateInputFields(shape2) {
     inputFields7.innerHTML = ""; // Clear previous input fields
-    
+
     if (shape2 === "rectangle") {
         inputFields7.innerHTML = `
             <label for="length">Height:</label>
@@ -226,9 +232,9 @@ button1.addEventListener('click', () => {
     }
     if (length_status1 && inertia_status1) {
         const modulus1 = getModulus(material1); // Get Young's modulus based on material
-        const resultValue1 = (((4*Math.PI**2)*modulus1*inertia1)/length1).toFixed(3);
-        document.getElementById('output1').innerHTML = 'Result: ' + resultValue1;
-        document.getElementById('crippling').value = resultValue1; // Assigning the result to crippling input field in the fifth box
+        const resultValue1 = (((4*Math.PI**2)*modulus1*inertia1)/length1).toFixed(3) ;
+        document.getElementById('output1').innerHTML = 'Result: ' + resultValue1 + "N";
+        document.getElementById('crippling').value = resultValue1 ; // Assigning the result to crippling input field in the fifth box
         
     } else {
         alert('The form has errors');
@@ -261,7 +267,7 @@ button2.addEventListener('click', () => {
     if (length_status2 && inertia_status2) {
         const modulus2 = getModulus(material2);
         const resultValue2 = ((Math.PI**2)*modulus2*inertia2)/(4*length2**2);
-        document.getElementById('output2').innerHTML = 'Result: ' + resultValue2.toFixed(2);
+        document.getElementById('output2').innerHTML = 'Result: ' + resultValue2.toFixed(2) + "N";
         document.getElementById('crippling').value = resultValue2; // Assigning the result to crippling input field in the fifth box
     } else {
         alert('The form has errors');
@@ -294,7 +300,7 @@ button3.addEventListener('click', () => {
     if (length_status3 && inertia_status3) {
         const modulus3 = getModulus(material3); // Get Young's modulus based on material
         const resultValue3 = ((2*Math.PI**2)*modulus3*inertia3)/length3**2;
-        document.getElementById('output3').innerHTML = 'Result: ' + resultValue3.toFixed(2);
+        document.getElementById('output3').innerHTML = 'Result: ' + resultValue3.toFixed(2) + "N";
         document.getElementById('crippling').value = resultValue3; // Assigning the result to crippling input field in the fifth box
     } else {
         alert('The form has errors');
@@ -327,7 +333,7 @@ button4.addEventListener('click', () => {
     if (length_status4 && inertia_status4) {
         const modulus4 = getModulus(material4); // Get
         const resultValue4 =((Math.PI**2)*modulus4*inertia4)/length4**2;
-        document.getElementById('output4').innerHTML = 'Result: ' + resultValue4.toFixed(2);
+        document.getElementById('output4').innerHTML = 'Result: ' + resultValue4.toFixed(2) + "N";
         document.getElementById('crippling').value = resultValue4; // Assigning the result to crippling input field in the fifth box
     } else {
         alert('The form has errors');
@@ -340,10 +346,10 @@ const button5 = document.getElementById('btn5');
 button5.addEventListener('click', () => {
     const CripplingStress = parseFloat(document.getElementById('crippling').value);
     const crushingStress = parseFloat(document.getElementById('crushing').value);
-    const radius = parseFloat(document.getElementById('radius').value);
+    const area = parseFloat(document.getElementById('area').value);
 
     const result5 = document.getElementById('output5');
-    let cripplingStatus = false, crushingStatus = false, radiusStatus = false;
+    let cripplingStatus = false, crushingStatus = false, areaStatus = false;
 
     if (isNaN(CripplingStress) || CripplingStress <= 0) {
         document.getElementById('crippling_error').innerHTML = 'Please provide a valid crippling stress';
@@ -357,16 +363,16 @@ button5.addEventListener('click', () => {
         document.getElementById('crushing_error').innerHTML = '';
         crushingStatus = true;
     }
-    if (isNaN(radius) || radius <= 0) {
-        document.getElementById('radius_error').innerHTML = 'Please provide a valid radius';
+    if (isNaN(area) || area <= 0) {
+        document.getElementById('area_error').innerHTML = 'Please provide a valid area';
     } else {
-        document.getElementById('radius_error').innerHTML = '';
-        radiusStatus = true;
+        document.getElementById('area_error').innerHTML = '';
+        areaStatus = true;
     }
 
-    if (cripplingStatus && crushingStatus && radiusStatus) {
-        const resultValue5 = (CripplingStress * Math.PI * Math.pow(radius, 2) * crushingStress) / ((crushingStress * Math.PI * Math.pow(radius, 2))+CripplingStress);
-        result5.innerHTML = 'Result: ' + resultValue5.toFixed(2);
+    if (cripplingStatus && crushingStatus && areaStatus) {
+        const resultValue5 = (CripplingStress * Math.PI * Math.pow(area, 2) * crushingStress) / ((crushingStress * Math.PI * Math.pow(radius, 2))+CripplingStress);
+        result5.innerHTML = 'Result: ' + resultValue5.toFixed(2) + "N/mm^2";
     } else {
         result5.innerHTML = ''; 
         alert('The form has errors');
@@ -394,14 +400,14 @@ document.addEventListener("DOMContentLoaded", function() {
         var ratio = length / radius;
         // Determine column type based on the ratio
         if (ratio > 120) {
-            output.textContent = "Slendor Ratio: " + ratio.toFixed(2) + ", Long Column"; 
+            output.textContent = "Slendorness Ratio: " + ratio.toFixed(2) + ", Long Column"; 
         } 
         else if (ratio <= 32) {
 
-            output.textContent = "Slendor Ratio: " + ratio.toFixed(2) + ", Short Column";
+            output.textContent = "Slendorness Ratio: " + ratio.toFixed(2) + ", Short Column";
             
         } else {
-            output.textContent = "SlendorRatio: " + ratio.toFixed(2) + ", Intermediate Column";
+            output.textContent = "Slendorness Ratio: " + ratio.toFixed(2) + ", Intermediate Column";
             
 
         }
