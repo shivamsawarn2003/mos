@@ -371,7 +371,7 @@ button5.addEventListener('click', () => {
     }
 
     if (cripplingStatus && crushingStatus && areaStatus) {
-        const resultValue5 = (CripplingStress * Math.PI * Math.pow(area, 2) * crushingStress) / ((crushingStress * Math.PI * Math.pow(radius, 2))+CripplingStress);
+        const resultValue5 = (CripplingStress * area * crushingStress) / ((crushingStress * area)+CripplingStress);
         result5.innerHTML = 'Result: ' + resultValue5.toFixed(2) + "N/mm^2";
     } else {
         result5.innerHTML = ''; 
