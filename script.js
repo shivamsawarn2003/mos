@@ -374,7 +374,6 @@ button5.addEventListener('click', () => {
         const resultValue5 = (CripplingStress * Math.PI * Math.pow(area, 2) * crushingStress) / ((crushingStress * Math.PI * Math.pow(radius, 2))+CripplingStress);
         result5.innerHTML = 'Result: ' + resultValue5.toFixed(2) + "N/mm^2";
     } else {
-        result5.innerHTML = ''; 
         alert('The form has errors');
     }
 });
