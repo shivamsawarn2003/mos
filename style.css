@@ -1,346 +1,204 @@
 /* Base styles */
 
 body {
-    color: #fffdfd;
-    font-family: Arial, Helvetica, sans-serif;
-    background: linear-gradient(to right, #83a4d4, #b6fbff);
+  color: #FFFFFF;
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(to right, #2C3E50, #4CA1AF);
 }
 
-
 span {
-    color: red;
+  color: #FF6B6B;
 }
 
 .wrapper {
-    position: relative;
-    margin: 20px auto;
-    padding: 30px;
-    width: 80%;
-    background: linear-gradient(to right, #1e1e1e, #383838);
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  position: relative;
+  margin: 20px auto;
+  padding: 30px;
+  width: 80%;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
 
 input {
-    outline: none;
-    border: 2px solid transparent;
-    border-radius: 8px;
-    padding: 15px;
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #eee;
-    font-family: Arial, Helvetica, sans-serif;
-    width: 300px;
+  outline: none;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 300px;
+  transition: border-color 0.3s ease-in-out;
 }
 
 input::placeholder {
-    color: rgba(255, 255, 255, 0.7);
-    font-style: italic;
+  color: rgba(255, 255, 255, 0.7);
+  font-style: italic;
 }
 
 input:focus::placeholder {
-    color: rgba(255, 255, 255, 0.5);
-    font-style: normal;
+  color: rgba(255, 255, 255, 0.5);
+  font-style: normal;
 }
 
 input:hover {
-    border-color: #999;
+  border-color: #C4E0E5;
 }
 
+input:focus {
+  border-color: #52B2C9;
+  box-shadow: 0 0 10px rgba(82, 178, 201, 0.5);
+}
 
 button {
-    color: white;
-    padding: 15px 30px;
-    border: none;
-    background: linear-gradient(to right, #4caf50, #2196f3);
-    display: block;
-    margin: 20px auto;
-    cursor: pointer;
-    font-size: 18px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  color: #FFFFFF;
+  padding: 15px 30px;
+  border: none;
+  background: linear-gradient(to right, #1ABC9C, #52B2C9);
+  display: block;
+  margin: 20px auto;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease-in-out;
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
 }
 
 h1 {
-    font-size: 24px;
-    color: #f6f4f4;
-    text-align: center;
-    margin-bottom: 20px;
+  font-size: 24px;
+  color: #FFFFFF;
+  text-align: center;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  animation: fadeInDown 1s ease-in-out;
 }
 
 .form-container {
-    flex: 1;
-    margin-right: 20px;
+  flex: 1;
+  margin-right: 20px;
 }
 
 .image-container {
-    position: absolute;
-    top: 20px;
-    right: 20px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
 }
 
 .image-container img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  animation: fadeInRight 1s ease-in-out;
 }
 
-#shapeSelect2{
+#shapeSelect2,
+#shapeSelect,
+#material1,
+#material2,
+#material3,
+#material4 {
   padding: 10px;
   font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 5px;
   outline: none;
   background-color: rgba(255, 255, 255, 0.1);
-  
   transition: border-color 0.3s;
+  color: #FFFFFF;
 }
-#shapeSelect {
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    outline: none;
-    background-color: rgba(255, 255, 255, 0.1);
-    
-    transition: border-color 0.3s;
-  }
-  
-  #shapeSelect:focus {
-    border-color: dodgerblue;
-  }
-  
-  /* Animation for the dropdown */
-  @keyframes fadeIn {
-    from {
+
+#shapeSelect2:focus,
+#shapeSelect:focus,
+#material1:focus,
+#material2:focus,
+#material3:focus,
+#material4:focus {
+  border-color: #52B2C9;
+  box-shadow: 0 0 10px rgba(82, 178, 201, 0.5);
+}
+
+/* Animation for the dropdown */
+@keyframes fadeIn {
+  from {
       opacity: 0;
       transform: translateY(-10px);
-    }
-    to {
+  }
+  to {
       opacity: 1;
       transform: translateY(0);
-    }
   }
-  
-  /* Apply animation to the dropdown options */
-  #shapeSelect option {
-    animation: fadeIn 0.5s ease-in-out;
-  }
+}
 
-
-#material1 {
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    outline: none;
-    background-color: rgba(255, 255, 255, 0.1);
-    
-    transition: border-color 0.3s;
-  }
-  
-  #material1:focus {
-    border-color: dodgerblue;
-  }
-  
-  /* Animation for the dropdown */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(-10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  /* Apply animation to the dropdown options */
-  #material1 option {
-    animation: fadeIn 0.5s ease-in-out;
-  }
-
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(-10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  /* Apply animation to the dropdown options */
-  #material1 option {
-    animation: fadeIn 0.5s ease-in-out;
-  }
-
-#material2 {
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    outline: none;
-    background-color: rgba(255, 255, 255, 0.1);
-    
-    transition: border-color 0.3s;
-  }
-  
-  #material2:focus {
-    border-color: dodgerblue;
-  }
-  
-  /* Animation for the dropdown */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(-10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  /* Apply animation to the dropdown options */
-  #material2 option {
-    animation: fadeIn 0.5s ease-in-out;
-  }
-
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(-10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  /* Apply animation to the dropdown options */
-  #material2 option {
-    animation: fadeIn 0.5s ease-in-out;
-  }
-
-#material3 {
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    outline: none;
-    background-color: rgba(255, 255, 255, 0.1);
-    
-    transition: border-color 0.3s;
-  }
-  
-  #material3:focus {
-    border-color: dodgerblue;
-  }
-  
-  /* Animation for the dropdown */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(-10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  /* Apply animation to the dropdown options */
-  #material3 option {
-    animation: fadeIn 0.5s ease-in-out;
-  }
-
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(-10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  /* Apply animation to the dropdown options */
-  #material3 option {
-    animation: fadeIn 0.5s ease-in-out;
-  }
-
-#material4 {
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    outline: none;
-    background-color: rgba(255, 255, 255, 0.1);
-    
-    transition: border-color 0.3s;
-  }
-  
-  #material4:focus {
-    border-color: dodgerblue;
-  }
-  
-  /* Animation for the dropdown */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(-10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  /* Apply animation to the dropdown options */
-  #material4 option {
-    animation: fadeIn 0.5s ease-in-out;
-  }
-
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(-10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  /* Apply animation to the dropdown options */
-  #material4 option {
-    animation: fadeIn 0.5s ease-in-out;
-  }
+/* Apply animation to the dropdown options */
+#shapeSelect2 option,
+#shapeSelect option,
+#material1 option,
+#material2 option,
+#material3 option,
+#material4 option {
+  animation: fadeIn 0.5s ease-in-out;
+  background-color: #2C3E50;
+  color: #FFFFFF;
+}
 
 /* Media query for phones */
 @media screen and (max-width: 600px) {
-    .wrapper {
-        width: 100%;
-        padding: 20px;
-    }
+  .wrapper {
+      width: 100%;
+      padding: 20px;
+  }
 
-    input {
-        width: 100%;
-    }
+  input {
+      width: 100%;
+  }
 
-    .form-container {
-        margin-right: 0;
-    }
+  .form-container {
+      margin-right: 0;
+  }
 
-    .image-container {
-        position: static;
-        margin-top: 20px;
-        text-align: center;
-    }
+  .image-container {
+      position: static;
+      margin-top: 20px;
+      text-align: center;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+      opacity: 0;
+      transform: translateY(-20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+      opacity: 0;
+      transform: translateX(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateX(0);
+  }
 }
