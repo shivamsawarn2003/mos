@@ -399,16 +399,17 @@ document.addEventListener("DOMContentLoaded", function() {
         var ratio = length / radius;
         // Determine column type based on the ratio
         if (ratio > 120) {
-            output.textContent = "Slendorness Ratio: " + ratio.toFixed(2) + ", Long Column"; 
-        } 
-        else if (ratio <= 32) {
-
+            output.textContent = "Slendorness Ratio: " + ratio.toFixed(2) + ", Long Column";
+        } else if (ratio <= 32) {
             output.textContent = "Slendorness Ratio: " + ratio.toFixed(2) + ", Short Column";
-            
         } else {
             output.textContent = "Slendorness Ratio: " + ratio.toFixed(2) + ", Intermediate Column";
-            
-
         }
+
+        // Update length fields in other boxes
+        document.getElementById('Length1').value = length;
+        document.getElementById('Length2').value = length;
+        document.getElementById('Length3').value = length;
+        document.getElementById('Length4').value = length;
     });
 });
