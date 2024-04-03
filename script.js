@@ -232,7 +232,7 @@ button1.addEventListener('click', () => {
     }
     if (length_status1 && inertia_status1) {
         const modulus1 = getModulus(material1); // Get Young's modulus based on material
-        const resultValue1 = (((4*Math.PI**2)*modulus1*inertia1)/length1).toFixed(3) ;
+        const resultValue1 = (((4 * Math.PI ** 2) * modulus1 * inertia1) / length1**2).toFixed(3);
         document.getElementById('output1').innerHTML = 'Result: ' + resultValue1 + "N";
         document.getElementById('crippling').value = resultValue1 ; // Assigning the result to crippling input field in the fifth box
         
